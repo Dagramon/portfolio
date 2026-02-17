@@ -60,7 +60,7 @@ header nav {
 }
 main {
     overflow: hidden;
-    height: 100vh;
+    height: max-content;
     background: linear-gradient(rgb(20, 20, 20), rgb(68, 41, 117));
 }
 .line {
@@ -80,9 +80,48 @@ main {
 }
 .item-main h1 {
     color: white;
-    text-shadow: 2px 2px 15px rgb(206, 102, 219);
+    text-shadow: 2px 2px 15px orange;
 }
-.item-main h2 {
-    color: rgb(153, 78, 163);
+li::before {
+  content: "✔";
+  color: rgba(103, 247, 103, 0.596);
+  display: inline-block;
+  width: 1em;
+  font-size: 25px;
+  
+}
+.languages {
+    overflow: hidden;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.languages img {
+    height: 75px;
+    width: 75px;
+}
+.items-container {
+    justify-content: center;
+    margin: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 55px;
+}
+.item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px;
+    height: 775px;
+    width: 300px;
+    background-color: rgba(90, 48, 95, 0.5);
+    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0)
+}
+.item-container h2 {
+    color: orange;
     text-shadow: 1px 1px 5px black;
+}
+.item-container ul {
+    list-style-type: none;
 }
