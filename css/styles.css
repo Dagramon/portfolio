@@ -1,43 +1,88 @@
-* {
-    padding:  0;
-    margin: 0;
-    color: white;
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* добавляем для удобства */
 }
+
+:root {
+    /* цветовая схема */
+    --color-primary: #8b5cf6;        /* фиолетовый */
+    --color-primary-light: #c4b5fd;
+    --color-primary-dark: #2e1065;
+    --color-bg: #ffffff;
+    --color-bg-alt: #faf5ff;
+    --color-text: #2e1065;
+    --color-text-light: #4c1d95;
+    --color-shadow: rgba(139, 92, 246, 0.15);
+    --color-success: #8b5cf6;         /* для галочек */
+    --border-radius: 12px;             /* скругление */
+    --transition: all 0.3s ease;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    color: var(--color-text);
+}
+
 html {
     scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; /* современный шрифт */
+    font-size: 16px;
+    line-height: 1.5;
 }
+
 section {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 125px;
 }
+
 a {
     text-decoration: none;
-    color: rgb(185, 183, 255);
-    text-shadow:  1px 1px 2px black;
+    color: var(--color-primary);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
 }
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
 header {
     top: 0;
     position: sticky;
     z-index: 100;
     display: flex;
-    overflow: hidden;
     flex-wrap: wrap;
-    padding: 15px;
-    background-color: rgb(20, 20, 20);
+    padding: 1rem 2rem;
+    background-color: var(--color-bg);
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    color: white;
-    border-bottom: 5px rgb(108, 41, 117) solid;
+    border-bottom: 5px solid var(--color-primary);
+    box-shadow: 0 4px 10px var(--color-shadow);
 }
-header h1
-{
+
+header h1 {
     justify-self: center;
+    font-size: 2rem;
 }
+
 header nav {
-    flex-wrap: wrap;
     display: flex;
-    gap: 25px;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
+
+header nav a {
+    font-weight: 500;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+header nav a:hover {
+    border-bottom-color: var(--color-primary);
+    text-decoration: none;
+}
+
 .profile-info {
     display: flex;
     flex-direction: row;
@@ -45,189 +90,284 @@ header nav {
     text-align: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    height: 50vh;
-    background-color: rgb(20, 20, 20);
-    overflow: scroll;
-    scrollbar-width: none;
-    border-bottom: 5px rgb(108, 41, 117) solid;
+    min-height: 50vh;
+    background-color: var(--color-bg-alt);
+    border-bottom: 5px solid var(--color-primary);
+    padding: 2rem;
 }
+
 .profile-info h1 {
-    background: linear-gradient(45deg, white, rgb(92, 26, 179));
+    background: linear-gradient(45deg, var(--color-primary-dark), var(--color-primary));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
+    font-size: 2.5rem;
 }
+
 .profile-info img {
     height: 200px;
     width: 200px;
+    border-radius: 50%; /* круглая аватарка */
+    border: 4px solid var(--color-primary-light);
+    object-fit: cover;
 }
+
 .item-info {
     overflow: hidden;
-    border-left: 2px orange solid;
-    background-color: rgb(68, 41, 117);
-    padding: 15px;
+    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-bg);
+    padding: 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: 0 4px 8px var(--color-shadow);
 }
+
 .item-info-flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
-    border-left: 2px orange solid;
-    background-color: rgb(68, 41, 117);
-    padding: 15px;
+    gap: 1.5rem;
+    border-left: 4px solid var(--color-primary);
+    background-color: var(--color-bg);
+    padding: 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    box-shadow: 0 4px 8px var(--color-shadow);
 }
+
 .item-info-flex img {
     width: 250px;
     height: 250px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
 }
+
 main {
     overflow: hidden;
     height: max-content;
-    background: linear-gradient(rgb(20, 20, 20), rgb(68, 41, 117));
+    background: linear-gradient(var(--color-bg-alt), var(--color-bg));
 }
+
 .line {
     height: 2px;
-    background-color: rgb(108, 41, 117);
+    background-color: var(--color-primary);
+    width: 100%;
+    margin: 2rem 0;
 }
+
 .item-main {
     display: flex;
-    overflow: hidden;
     flex-wrap: wrap;
     flex-direction: column;
-    gap: 25px;
+    gap: 1.5rem;
     margin: 5%;
-    padding: 25px;
+    padding: 2rem;
     height: fit-content;
-    background-color: rgba(90, 48, 95, 0.5);
-    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0)
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px var(--color-shadow);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(2px); /* лёгкое размытие фона */
 }
+
 .item-main h1 {
-    color: white;
-    text-shadow: 2px 2px 15px orange;
+    color: var(--color-primary-dark);
+    text-shadow: 2px 2px 10px var(--color-primary-light);
+    font-size: 2.2rem;
 }
+
 .languages {
-    overflow: hidden;
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 1rem;
+    margin: 1rem 0;
 }
+
 .languages img {
     height: 75px;
     width: 75px;
+    border-radius: 50%;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 4px 8px var(--color-shadow);
+    transition: var(--transition);
 }
+.languages img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
 .items-container {
     justify-content: center;
     margin: 5%;
     display: flex;
     flex-wrap: wrap;
-    gap: 55px;
+    gap: 2rem;
 }
-.items-container img {
-    overflow: hidden;
-}
+
 .gramota {
-    overflow: hidden;
-    border: 5px black solid;
+    border: 5px solid var(--color-primary-light);
     height: 500px;
     width: 350px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    transition: var(--transition);
 }
+.gramota:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px var(--color-shadow);
+}
+
 .item-container {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 25px;
+    gap: 1.5rem;
+    padding: 2rem;
     height: 775px;
     width: 300px;
-    background-color: rgba(90, 48, 95, 0.5);
-    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0)
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px var(--color-shadow);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    backdrop-filter: blur(2px);
 }
+.item-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--color-shadow);
+}
+
 .item-container-work {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 25px;
+    gap: 1.5rem;
+    padding: 2rem;
     height: 500px;
     width: 500px;
-    background-color: rgba(90, 48, 95, 0.5);
-    box-shadow: 0px 0px 10px 10px rgb(0, 0, 0)
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px var(--color-shadow);
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(2px);
+    transition: var(--transition);
 }
-.item-container-work h1 {
-    z-index: 1;
+.item-container-work:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--color-shadow);
 }
-.item-container-work p {
-    z-index: 1;
-}
+
+.item-container-work h1,
+.item-container-work p,
 .item-container-work a {
+    position: relative;
     z-index: 1;
 }
+
 .item-container-work .button {
-    margin-left: auto; 
-    margin-top: auto; 
+    margin-left: auto;
+    margin-top: auto;
 }
+
 .button {
-    border: 2px black solid;
+    border: 2px solid var(--color-primary-dark);
     color: white;
     font-weight: bold;
     height: 50px;
     width: 125px;
     text-align: center;
     align-content: center;
-    background-color: orange;
+    background-color: var(--color-primary);
+    border-radius: 30px; /* более современные кнопки */
+    transition: var(--transition);
+    cursor: pointer;
+    display: inline-block;
 }
+.button:hover {
+    background-color: var(--color-primary-dark);
+    transform: scale(1.05);
+    border-color: var(--color-primary-light);
+}
+
 .item-container-work img {
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.2;
     z-index: 0;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
 }
+
 .item-container li::before {
-  content: "✔";
-  color: rgba(103, 247, 103, 0.596);
-  display: inline-block;
-  width: 1em;
-  font-size: 25px;
-  
+    content: "✔";
+    color: var(--color-success);
+    display: inline-block;
+    width: 1.5em;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
+
 ul {
     list-style: none;
 }
+
 .item-main li {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
+
 .item-container h2 {
-    color: orange;
-    text-shadow: 1px 1px 5px black;
+    color: var(--color-primary);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.8);
+    font-size: 1.8rem;
 }
-.item-container ul {
-    list-style-type: none;
+
+/* Стилизация скроллбара (для Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
 }
-.telegram {
-    display: inline-block;
-    padding: 20px 20px;
-    background-image: url("../images/telegram.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-alt);
+    border-radius: 10px;
 }
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-light);
+    border-radius: 10px;
+    border: 2px solid var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}
+
+.telegram,
 .github {
     display: inline-block;
-    padding: 20px 20px;
-    background-image: url("../images/github.png");
+    padding: 1.75rem 1.75rem;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
-    color: white;
+    background-position: left center;
+    color: var(--color-text);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    transition: var(--transition);
+    border: 1px solid transparent;
 }
+
+.telegram {
+    background-image: url("../images/telegram.png");
+}
+.github {
+    background-image: url("../images/github.png");
+}
+
+.telegram:hover,
+.github:hover {
+    background-color: var(--color-bg-alt);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
 footer {
     display: flex;
     justify-content: space-around;
@@ -235,11 +375,41 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    overflow: hidden;
-    background-color: rgb(20, 20, 20);
+    background-color: var(--color-bg);
     height: 20vh;
+    border-top: 2px solid var(--color-primary-light);
+    padding: 1rem;
 }
+
 .competentions-list {
-    padding-left: 5px;
-    border-left: 1px orange solid;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-primary);
+    margin: 0.5rem 0;
+}
+
+/* Адаптивные улучшения */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    .profile-info {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+    }
+    .item-container-work {
+        width: 90%;
+        height: auto;
+    }
+    .item-container {
+        width: 90%;
+        height: auto;
+    }
+    .gramota {
+        width: 90%;
+        height: auto;
+    }
+    .button {
+        width: 100%;
+    }
 }
